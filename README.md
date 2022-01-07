@@ -33,7 +33,9 @@ Makeup: https://dg0iszzfyf3bz.cloudfront.net/widget/1.1.2/index.html?demo=makeup
 
 ### 1.1.2
 
-**Makeup Widget:**
+**Makeup:**
+- Improved tracking quality
+- Improved overall visual quality 
 - Add comparison feature: compare with & without makeup product.
 
 ### 1.1.1
