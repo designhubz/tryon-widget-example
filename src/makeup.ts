@@ -8,7 +8,7 @@ import {
 
 export async function demo()
 {
-    console.log('Designhubz Makeup Tryon  Demo', Designhubz.version);
+    console.log('Designhubz Makeup Tryon', Designhubz.version);
 
     // My parameters
     const container = document.getElementById('designhubz-widget-container') as HTMLDivElement;
@@ -56,6 +56,19 @@ export async function demo()
             // Create png blob from composited canvas and open it
             const blob = await new Promise<Blob>( resolve => canvas.toBlob( blob => resolve(blob!), 'png') );
             open(URL.createObjectURL(blob), '_blank');
+        }
+    });
+
+    // Compare with or without products
+    let isComparing = false;
+    window.addEventListener('keydown', async ke =>
+    {
+        if(ke.key === 'c')
+        {
+            isComparing = ! isComparing;
+
+            // 0.5 will hide half the "currently loaded" product
+            widget.liveCompare(isComparing ? .5 : 0);
         }
     });
 

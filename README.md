@@ -14,7 +14,7 @@ In it's simplest form....
 
 Eyewear: https://dg0iszzfyf3bz.cloudfront.net/widget/1.1.1/index.html
 
-Makeup: https://dg0iszzfyf3bz.cloudfront.net/widget/1.1.1/index.html?demo=makeup
+Makeup: https://dg0iszzfyf3bz.cloudfront.net/widget/1.1.2/index.html?demo=makeup
 
 ---
 
@@ -30,6 +30,11 @@ Makeup: https://dg0iszzfyf3bz.cloudfront.net/widget/1.1.1/index.html?demo=makeup
 ---
 
 ## Changelog
+
+### 1.1.2
+
+**Makeup Widget:**
+- Add comparison feature: compare with & without makeup product.
 
 ### 1.1.1
 
