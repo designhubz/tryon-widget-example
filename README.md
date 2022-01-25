@@ -12,9 +12,9 @@ In it's simplest form....
 
 ## Live preview
 
-Eyewear: https://dg0iszzfyf3bz.cloudfront.net/widget/1.1.1/index.html
+Eyewear: https://dg0iszzfyf3bz.cloudfront.net/widget/1.1.3/index.html
 
-Makeup: https://dg0iszzfyf3bz.cloudfront.net/widget/1.1.2/index.html?demo=makeup
+Makeup: https://dg0iszzfyf3bz.cloudfront.net/widget/1.1.3/index.html?demo=makeup
 
 ---
 
@@ -31,12 +31,18 @@ Makeup: https://dg0iszzfyf3bz.cloudfront.net/widget/1.1.2/index.html?demo=makeup
 
 ## Changelog
 
+### 1.1.3
+
+- Improved error handling and QA utils
+- Bug fixes
+
 ### 1.1.2
 
 **Makeup:**
 - Improved tracking quality
 - Improved overall visual quality 
-- Add comparison feature: compare with & without makeup product.
+- Add comparison feature: compare with & without makeup product
+- Bug fixes
 
 ### 1.1.1
 
