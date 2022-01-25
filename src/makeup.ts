@@ -8,7 +8,7 @@ import {
 
 export async function demo()
 {
-    console.log('Designhubz Makeup Tryon', Designhubz.version);
+    console.log('Designhubz Makeup Tryon (raw demo)', Designhubz.version);
 
     // My parameters
     const container = document.getElementById('designhubz-widget-container') as HTMLDivElement;
