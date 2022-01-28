@@ -1,3 +1,9 @@
+At **Designhubz** we empower brands around the world to connect with shoppers in a complete immersive way.
+
+We’re transforming the online shopping experience with next generation eCommerce interfaces using our leading AR technology that’s being adopted by some of the largest brands and retailers globally.
+
+---
+
 # Designhubz | Eyewear & Makeup Tryon
 
 This project highlights the usage of the Designhubz web SDK for Eyewear & Makeup Tryons.
