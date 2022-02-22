@@ -8,7 +8,7 @@ import {
 
 export async function demo()
 {
-    console.log('Designhubz Makeup Tryon (raw demo)', Designhubz.version);
+    console.log('Designhubz Makeup Tryon', Designhubz.version);
 
     // My parameters
     const container = document.getElementById('designhubz-widget-container') as HTMLDivElement;
@@ -17,6 +17,13 @@ export async function demo()
 
     // Handle camera permissions before widget creation
     await demo_videoAuth();
+
+    // Whitelist local dev access to your resources
+    if(location.origin.includes('https://localhost'))
+    {
+        const orgId = window.prompt('Please enter your organization Id');
+        if(orgId !== null) Designhubz.auth(orgId);
+    }
 
     //  Prepare widget: creates the view
     console.log('Designhubz.createMakeupWidget');

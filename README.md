@@ -18,9 +18,9 @@ In it's simplest form....
 
 ## Live preview
 
-Eyewear: https://dg0iszzfyf3bz.cloudfront.net/widget/1.1.3/index.html
+Eyewear: https://dg0iszzfyf3bz.cloudfront.net/widget/1.2.0/index.html
 
-Makeup: https://dg0iszzfyf3bz.cloudfront.net/widget/1.1.3/index.html?demo=makeup
+Makeup: https://dg0iszzfyf3bz.cloudfront.net/widget/1.2.0/index.html?demo=makeup
 
 ---
 
@@ -36,6 +36,12 @@ Makeup: https://dg0iszzfyf3bz.cloudfront.net/widget/1.1.3/index.html?demo=makeup
 ---
 
 ## Changelog
+
+### 1.2.0
+
+- Changes that reflects improvements to infrastructure
+- Adds an adiitional "privacy" layer to your products: When developping locally, calling `Designhubz.auth(ORGANIZATION_ID)` is required to successfully use the widget.
+- Changes SDK deployement path: 
 
 ### 1.1.3
 

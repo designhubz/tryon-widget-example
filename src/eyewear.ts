@@ -6,7 +6,7 @@ import {
     demo_cycleProducts, demo_switchContext, demo_stats 
 } from './snippets';
 
-console.log('Designhubz Eyewear Tryon (raw demo)', Designhubz.version);
+console.log('Designhubz Eyewear Tryon Demo', Designhubz.version);
 
 export async function demo()
 { 
@@ -16,6 +16,13 @@ export async function demo()
 
     // Handle camera permissions before widget creation
     await demo_videoAuth();
+
+    // Whitelist local dev access to your resources
+    if(location.origin.includes('https://localhost'))
+    {
+        const orgId = window.prompt('Please enter your organization Id');
+        if(orgId !== null) Designhubz.auth(orgId);
+    }
 
     // Create empty widget
     let widget = await Designhubz.createEyewearWidget(container, demo_progressHandler('Eyewear widget'));
