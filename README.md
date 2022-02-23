@@ -39,8 +39,9 @@ Makeup: https://dg0iszzfyf3bz.cloudfront.net/widget/1.2.0/index.html?demo=makeup
 
 ### 1.2.0
 
-- Changes that reflects improvements to infrastructure
-- Adds an adiitional "privacy" layer to your products: When developping locally, calling `Designhubz.auth(ORGANIZATION_ID)` is required to successfully use the widget.
+- Transparent changes that reflects improvements to infrastructure
+- Additional "privacy" layer to your products: When developping locally only, calling `Designhubz.auth(ORGANIZATION_ID)` is required to successfully use the widget. When live (not localhost), this is not needed as whitelisting takes over (usage is shown in example).
+- Enforcing `widget.setUserId('USER_ID');` right after instanciating the widget.
 - Changes SDK deployement path: `"designhubz-widget": "https://d2v6wmk4yqo2ys.cloudfront.net/master/designhubz-widget-1.2.0.tgz"`
 
 ### 1.1.3
