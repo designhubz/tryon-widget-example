@@ -18,9 +18,9 @@ In it's simplest form....
 
 ## Live preview
 
-Eyewear: https://dg0iszzfyf3bz.cloudfront.net/widget/1.2.0/index.html
+Eyewear: https://d2v6wmk4yqo2ys.cloudfront.net/master/example/1.2.0/index.html
 
-Makeup: https://dg0iszzfyf3bz.cloudfront.net/widget/1.2.0/index.html?demo=makeup
+Makeup: https://d2v6wmk4yqo2ys.cloudfront.net/master/example/1.2.0/index.html?demo=makeup
 
 ---
 
