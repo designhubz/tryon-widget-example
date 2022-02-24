@@ -20,7 +20,7 @@ export async function demo()
     await demo_videoAuth();
 
     // Whitelist local dev access to your resources
-    if(location.origin.includes('https://localhost'))
+    if(location.origin.includes('//localhost:'))
     {
         const orgId = window.prompt('Please enter your organization Id');
         if(orgId !== null) Designhubz.auth(orgId);
