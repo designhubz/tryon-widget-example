@@ -1,4 +1,5 @@
 import * as Designhubz from 'designhubz-widget';
+import { displayLog } from './logUtils';
 import { 
     demo_state,
     demo_videoAuth, demo_progressHandler, demo_onUserInfoUpdate,
@@ -6,7 +7,7 @@ import {
     demo_cycleProducts, demo_switchContext, demo_stats 
 } from './snippets';
 
-console.log('Designhubz Eyewear Tryon Demo', Designhubz.version);
+console.log(...displayLog('Designhubz Eyewear Tryon Demo', Designhubz.version));
 
 export async function demo()
 { 
@@ -27,6 +28,7 @@ export async function demo()
     // Create empty widget
     let widget = await Designhubz.createEyewearWidget(container, demo_progressHandler('Eyewear widget'));
     console.log('widget', widget);
+    displayLog('widget loaded');
 
     // The identifier that can pair this widget session with your collected user stats
     widget.setUserId('1234');
@@ -34,6 +36,7 @@ export async function demo()
     // Load a product in the widget
     const product = await widget.loadProduct(productIDs[0]);
     console.log('product', product);
+    displayLog(`product '${product.productKey}' loaded`);
 
     // Widget defaults to 3D mode, this will switch to tryon
     const newContext = await widget.switchContext('tryon', demo_progressHandler('Switching to tryon'));

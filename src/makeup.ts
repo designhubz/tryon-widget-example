@@ -1,4 +1,5 @@
 import * as Designhubz from 'designhubz-widget';
+import { displayLog } from './logUtils';
 import { 
     demo_state,
     demo_videoAuth, demo_progressHandler,
@@ -29,6 +30,7 @@ export async function demo()
     console.log('Designhubz.createMakeupWidget');
     let widget = await Designhubz.createMakeupWidget(container, demo_progressHandler('Makeup widget'));
     console.log('widget =', widget);
+    displayLog('widget loaded');
 
     // Set user id for analytics: prerequisite for further interaction with the widget
     widget.setUserId('1234');
@@ -36,6 +38,7 @@ export async function demo()
     // Load a product in the widget
     const product = await widget.loadProduct(productIDs[0]);
     console.log('product', product);
+    displayLog(`product '${product.productKey}' loaded`);
 
     // Common interactions with widget (./snippets.ts)
     demo_takeSnaphot(widget);

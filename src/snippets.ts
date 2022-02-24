@@ -1,9 +1,11 @@
 import * as Designhubz from 'designhubz-widget';
+import { displayLog } from './logUtils';
 
 export namespace demo_state
 {
     export let active = true;
     export let userInfo: Designhubz.Eyewear.IUserInfo | undefined;
+    export let userInfoDisplayed = false;
 }
 
 /**
@@ -75,7 +77,7 @@ export function demo_stats(widget: Designhubz.IWidget)
 /** Take a snapshot of what is currently displayed in widget */
 export function demo_takeSnaphot(widget: Designhubz.IWidget)
 {
-    console.log(`   Press 'Enter' to take a snapshot of the viewer currently`);
+    console.log(...displayLog(`   Press 'Enter' to take a snapshot of the viewer currently`));
     window.addEventListener('keydown', async ke => {
         if(ke.code === 'Enter')
         {
@@ -94,6 +96,7 @@ export async function demo_fetchRecommendations(widget: Designhubz.IWidget)
 {
     const recommendations = await widget.fetchRecommendations(5);
     console.log('recommendations', recommendations);
+    displayLog(`recommendations: ${recommendations.map( r => r.productKey ).join(', ') }`);
 }
 
 /** React to tracking events */
@@ -138,6 +141,11 @@ export function demo_trackingHandler(widget: Designhubz.ITryonwidget)
 export function demo_onUserInfoUpdate(widget: Designhubz.IEyewearWidget)
 {
     widget.onUserInfoUpdate.Add( userInfo => {
+        if(demo_state.userInfoDisplayed === false)
+        {
+            displayLog(`Got userInfo: ipd = ${userInfo.ipd.toFixed(2)} | eyeSize = ${userInfo.eyeSize.toFixed(2)} (${userInfo.size})`)
+            demo_state.userInfoDisplayed = true;
+        }
         demo_state.userInfo = userInfo;
         demo_userInfo(userInfo, widget.product);
     });
@@ -145,7 +153,7 @@ export function demo_onUserInfoUpdate(widget: Designhubz.IEyewearWidget)
 
 export function demo_userInfo(userInfo: Designhubz.Eyewear.IUserInfo, product: Designhubz.IProduct)
 {
-    console.log(`Got userInfo: ipd = ${userInfo.ipd} | eyeSize = ${userInfo.eyeSize} (${userInfo.size})`);
+    console.log(`Got userInfo: ipd = ${userInfo.ipd.toFixed(2)} | eyeSize = ${userInfo.eyeSize.toFixed(2)} (${userInfo.size})`);
     
     // Accessing custom product properties as defined in CMS
     const productSize = parseFloat(product.properties['Size Code']!);
@@ -175,7 +183,7 @@ export function demo_userInfo(userInfo: Designhubz.Eyewear.IUserInfo, product: D
 /** Switch between 3D and Tryon modes */
 export function demo_switchContext(widget: Designhubz.IMultiWidget)
 {
-    console.log(`   Press 'Space' to switch between 3D & Tryon`);
+    console.log(...displayLog(`   Press 'Space' to switch between 3D & Tryon`));
     window.addEventListener('keydown', async ke => {
         if(ke.code === 'Space')
         {
@@ -192,7 +200,7 @@ export async function demo_cycleProducts(
     cycleNextDelayMS: number
 )
 {
-    console.log(`'demo_cycleProducts' starts`);
+    console.log(...displayLog(`'demo_cycleProducts' starts`));
 
     const showcaseAsync = () => new Promise( r => setTimeout(r, cycleNextDelayMS) );;
     await showcaseAsync();
