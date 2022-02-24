@@ -18,7 +18,7 @@ export async function demo()
     // Handle camera permissions before widget creation
     await demo_videoAuth();
 
-    // Whitelist local dev access to your resources (you can replace this check with .env variables)
+    // Whitelist local dev access to your resources
     if(location.origin.includes('https://localhost'))
     {
         const orgId = window.prompt('Please enter your organization Id');
