@@ -18,9 +18,9 @@ In it's simplest form....
 
 ## Live preview
 
-Eyewear: https://d2v6wmk4yqo2ys.cloudfront.net/master/example/1.2.0/index.html
+Eyewear: https://d2v6wmk4yqo2ys.cloudfront.net/master/example/1.2.1/index.html
 
-Makeup: https://d2v6wmk4yqo2ys.cloudfront.net/master/example/1.2.0/index.html?demo=makeup
+Makeup: https://d2v6wmk4yqo2ys.cloudfront.net/master/example/1.2.1/index.html?demo=makeup
 
 ---
 
@@ -37,12 +37,16 @@ Makeup: https://d2v6wmk4yqo2ys.cloudfront.net/master/example/1.2.0/index.html?de
 
 ## Changelog
 
+### 1.2.1
+
+- Patched `Designhubz.auth(ORGANIZATION_ID, [TARGET_DEPLOYMENT='staging'])` to target staging deployment (while using staging's organization Id)
+
 ### 1.2.0
 
 - Transparent changes that reflects improvements to infrastructure
 - Additional "privacy" layer to your products: When developping locally only, calling `Designhubz.auth(ORGANIZATION_ID)` is required to successfully use the widget. When live (not localhost), this is not needed as whitelisting takes over (usage is shown in example).
 - Enforcing `widget.setUserId('USER_ID');` right after instanciating the widget.
-- Changes SDK deployement path: `"designhubz-widget": "https://d2v6wmk4yqo2ys.cloudfront.net/master/designhubz-widget-1.2.0.tgz"`
+- Changes SDK deployement path (Please check package.json)
 
 ### 1.1.3
 
