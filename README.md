@@ -18,9 +18,9 @@ In it's simplest form....
 
 ## Live preview
 
-Eyewear: https://d2v6wmk4yqo2ys.cloudfront.net/master/example/1.2.1/index.html
+Eyewear: https://d2v6wmk4yqo2ys.cloudfront.net/master/example/1.3.0/index.html
 
-Makeup: https://d2v6wmk4yqo2ys.cloudfront.net/master/example/1.2.1/index.html?demo=makeup
+Makeup: https://d2v6wmk4yqo2ys.cloudfront.net/master/example/1.3.0/index.html?demo=makeup
 
 ---
 
@@ -36,6 +36,10 @@ Makeup: https://d2v6wmk4yqo2ys.cloudfront.net/master/example/1.2.1/index.html?de
 ---
 
 ## Changelog
+
+### 1.3.0
+- Finalize `Designhubz.auth(ORGANIZATION_ID)`
+- Improvements to dev and debugging
 
 ### 1.2.1
 

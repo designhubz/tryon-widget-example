@@ -21,7 +21,7 @@ export async function demo()
     // Whitelist local dev access to your resources
     if(location.origin.includes('//localhost:'))
     {
-        const orgId = window.prompt('Please enter your organization Id');
+        const orgId = (new URL(location.href)).searchParams.get('orgId') ?? window.prompt('Please enter your organization Id');
         if(orgId !== null) Designhubz.auth(orgId);
     }
 
