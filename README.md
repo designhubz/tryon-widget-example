@@ -22,6 +22,10 @@ Eyewear: https://d2v6wmk4yqo2ys.cloudfront.net/master/example/1.3.0/index.html
 
 Makeup: https://d2v6wmk4yqo2ys.cloudfront.net/master/example/1.3.0/index.html?demo=makeup
 
+## API Reference
+
+https://d2v6wmk4yqo2ys.cloudfront.net/master/docs/1.3.0/modules.html
+
 ---
 
 ## Running the example
