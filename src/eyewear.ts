@@ -7,7 +7,7 @@ import {
     demo_cycleProducts, demo_switchContext, demo_stats 
 } from './snippets';
 
-console.log(...displayLog('Designhubz Eyewear Tryon Demo', Designhubz.version));
+console.log(...displayLog('Designhubz Eyewear VTO - SDK features', Designhubz.version));
 
 export async function demo()
 { 
