@@ -18,13 +18,13 @@ In it's simplest form....
 
 ## Live preview
 
-Eyewear: https://d2v6wmk4yqo2ys.cloudfront.net/master/example/1.3.1/index.html
+Eyewear: https://d2v6wmk4yqo2ys.cloudfront.net/master/example/1.3.2/index.html
 
-Makeup: https://d2v6wmk4yqo2ys.cloudfront.net/master/example/1.3.1/index.html?demo=makeup
+Makeup: https://d2v6wmk4yqo2ys.cloudfront.net/master/example/1.3.2/index.html?demo=makeup
 
 ## API Reference
 
-https://d2v6wmk4yqo2ys.cloudfront.net/master/docs/1.3.1/modules.html
+https://d2v6wmk4yqo2ys.cloudfront.net/master/docs/1.3.2/modules.html
 
 ---
 
@@ -41,7 +41,7 @@ https://d2v6wmk4yqo2ys.cloudfront.net/master/docs/1.3.1/modules.html
 
 ## Changelog
 
-### 1.3.1
+### 1.3.2
 - Separated dev helpers `Designhubz.auth(ORGANIZATION_ID)` & `Designhubz.setDeployment('staging')`
 - Minor improvements
 
