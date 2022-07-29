@@ -9,6 +9,8 @@ import {
 
 console.log(...displayLog('Designhubz Eyewear VTO - SDK features', Designhubz.version));
 
+const searchParams = new URL(location.href).searchParams;
+
 export async function demo()
 { 
     // My parameters
@@ -21,8 +23,12 @@ export async function demo()
     // Whitelist local dev access to your resources
     if(location.origin.includes('//localhost:'))
     {
-        const orgId = (new URL(location.href)).searchParams.get('orgId') ?? window.prompt('Please enter your organization Id');
+        const orgId = searchParams.get('orgId') ?? window.prompt('Please enter your organization Id');
         if(orgId !== null) Designhubz.auth(orgId);
+        
+        const deployment = searchParams.get('target-deployment');
+        console.log({deployment});
+        if(deployment !== null) Designhubz.setDeployment(deployment);
     }
 
     // Create empty widget
