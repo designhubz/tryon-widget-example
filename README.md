@@ -26,7 +26,8 @@ SpatialXR: Coming soon
 
 ## API Reference
 
-https://d2v6wmk4yqo2ys.cloudfront.net/master/docs/latest/modules.html
+- Designhubz Full: https://d2v6wmk4yqo2ys.cloudfront.net/master/docs/latest/modules.html
+- [Eyewear companion doc](./EYEWEAR.md)
 
 ---
 

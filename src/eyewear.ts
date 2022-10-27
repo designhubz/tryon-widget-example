@@ -11,6 +11,11 @@ console.log(...displayLog('Designhubz Eyewear VTO - SDK features', Designhubz.ve
 
 const searchParams = new URL(location.href).searchParams;
 
+/**
+ * This project highlights the usage of the Designhubz web SDK for Eyewear
+ * 
+ * Check the [companion doc](../EYEWEAR.md)
+ */
 export async function demo()
 { 
     // My parameters
