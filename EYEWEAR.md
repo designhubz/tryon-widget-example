@@ -9,7 +9,6 @@ The widget `designhubz-widget` is a very lightweight JS/TS npm package.
 
 It's a simple API that adds a Computer Vision based Realtime 3D Try-On experience, interacting with your digitized inventory on Designhubz' platform and providing 1 of a kind user-feature-based recommendations.
 
-<br>
 
 ## Maintenance
 - We use SemVer (Minor and patch version changes are non-breaking)
@@ -17,18 +16,14 @@ It's a simple API that adds a Computer Vision based Realtime 3D Try-On experienc
 - New releases will include bug fixes or new features to the widget
 - Improvements to the 3D/Try-On experiences are *transparent changes* (You won't need to upgrade).
 
-<br>
 
 ## Adding the widget to your project
 1. Refer to [./package.json](./package.json) for the latest version of `designhubz-widget` and add it as a dependencies.
 2. `npm install`
 
-<br>
 
 ## Using the widget
 Below is a step by step description of the code in ( [./src/eyewear.ts](./src/eyewear.ts) ).
-
-<br>
 
 In this demo, we:
 
@@ -106,6 +101,8 @@ In this demo, we:
     await widget.switchContext('tryon', demo_progressHandler('Switching to tryon'));
     ```
 
+<br>
+
 9. We setup handlers for **`onUserInfoUpdate` event**
     - Dispatched each time user is analysed (typically once at the start of a session)
     - Usage (check `demo_onUserInfoUpdate` [in ./src/snippets.ts](./src/snippets.ts))
@@ -154,7 +151,16 @@ In this demo, we:
     - This will free ram and gpu resources
     - The widget's dom element can be removed
 
-<br>
+
+## API Reference
+
+- Designhubz: https://d2v6wmk4yqo2ys.cloudfront.net/master/docs/latest/modules.html
+- Intersesting modules:
+    - [Eyewear](https://d2v6wmk4yqo2ys.cloudfront.net/master/docs/latest/modules/Eyewear.html)
+    - [IMultiWidget](https://d2v6wmk4yqo2ys.cloudfront.net/master/docs/latest/interfaces/IMultiWidget.html)
+    - [ISnapshot](https://d2v6wmk4yqo2ys.cloudfront.net/master/docs/latest/interfaces/ISnapshot.html)
+    - [TrackingStatus](https://d2v6wmk4yqo2ys.cloudfront.net/master/docs/latest/enums/TrackingStatus.html)
+
 
 ### Notes
 
@@ -165,14 +171,3 @@ In this demo, we:
 [^localhost]: We're on localhost and we'll need to circumvent domain-based whitelisting
     - When deployed, your XR inventory is accessible by resolving a whitelisted domain.
     - On localhost, you'll need to set your company/account's "auth config pair" (reach out to your tech contact for those details)
-
-<br>
-
-## API Reference
-
-- Designhubz: https://d2v6wmk4yqo2ys.cloudfront.net/master/docs/latest/modules.html
-- Intersesting modules:
-    - [Eyewear](https://d2v6wmk4yqo2ys.cloudfront.net/master/docs/latest/modules/Eyewear.html)
-    - [IMultiWidget](https://d2v6wmk4yqo2ys.cloudfront.net/master/docs/latest/interfaces/IMultiWidget.html)
-    - [ISnapshot](https://d2v6wmk4yqo2ys.cloudfront.net/master/docs/latest/interfaces/ISnapshot.html)
-    - [TrackingStatus](https://d2v6wmk4yqo2ys.cloudfront.net/master/docs/latest/enums/TrackingStatus.html)
