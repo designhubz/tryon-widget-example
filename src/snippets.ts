@@ -85,6 +85,8 @@ export function demo_takeSnaphot(widget: Designhubz.IWidget)
             const snapshot = await widget.takeSnapshotAsync();
 
             // use the snapshot with helper functions
+            // const image = snapshot.createImageElement();
+            // const dataURL = snapshot.getDataURL('jpeg', 80);
             const blob = await snapshot.getBlobAsync('jpeg', 80);
             open(URL.createObjectURL(blob), '_blank');
         }

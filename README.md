@@ -18,15 +18,15 @@ In it's simplest form....
 
 ## Live preview
 
-Eyewear: https://d2v6wmk4yqo2ys.cloudfront.net/master/example/2.0.2/index.html
+Eyewear: https://d2v6wmk4yqo2ys.cloudfront.net/master/example/2.1.1/index.html
 
-Makeup: https://d2v6wmk4yqo2ys.cloudfront.net/master/example/2.0.2/index.html?demo=makeup
+Makeup: https://d2v6wmk4yqo2ys.cloudfront.net/master/example/2.1.1/index.html?demo=makeup
 
 SpatialXR: Coming soon
 
 ## API Reference
 
-https://d2v6wmk4yqo2ys.cloudfront.net/master/docs/2.0.2/modules.html
+https://d2v6wmk4yqo2ys.cloudfront.net/master/docs/latest/modules.html
 
 ---
 
@@ -42,6 +42,9 @@ https://d2v6wmk4yqo2ys.cloudfront.net/master/docs/2.0.2/modules.html
 ---
 
 ## Changelog
+
+### 2.1.1
+- Improve SpatialXR widget
 
 ### 2.0.2
 - Add SpatialXR (room-based AR) widget

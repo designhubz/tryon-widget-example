@@ -49,7 +49,6 @@ export async function demo()
     console.log(`Context switched to '${newContext}'`);
     
     // Common interactions with widget (./snippets.ts)
-    demo_stats(widget);
     demo_onUserInfoUpdate(widget);
     demo_takeSnaphot(widget);
     demo_trackingHandler(widget);
