@@ -10,6 +10,7 @@ import {
 console.log(...displayLog('Designhubz Eyewear VTO - SDK features', Designhubz.version));
 
 const searchParams = new URL(location.href).searchParams;
+const isLocalDev = location.origin.includes('//localhost:');
 
 /**
  * This project highlights the usage of the Designhubz web SDK for Eyewear
@@ -17,7 +18,17 @@ const searchParams = new URL(location.href).searchParams;
  * Check the [companion doc](../EYEWEAR.md)
  */
 export async function demo()
-{ 
+{
+    // Access to your resources on localhost (not required when published on whitelisted domain)
+    const orgId = searchParams.get('org') ?? window.prompt('Please enter your organization Id');
+    if(orgId !== null) Designhubz.auth(orgId);
+    if(isLocalDev)
+    {
+        const deployment = searchParams.get('deployment');
+        console.log({deployment});
+        if(deployment !== null) Designhubz.setDeployment(deployment);
+    }
+    
     // My parameters
     const container = document.getElementById('designhubz-widget-container') as HTMLDivElement;
     let productsParam = searchParams.get('products');
@@ -26,17 +37,6 @@ export async function demo()
 
     // Handle camera permissions before widget creation
     await demo_videoAuth();
-
-    // Whitelist local dev access to your resources
-    if(location.origin.includes('//localhost:'))
-    {
-        const orgId = searchParams.get('org') ?? window.prompt('Please enter your organization Id');
-        if(orgId !== null) Designhubz.auth(orgId);
-        
-        const deployment = searchParams.get('deployment');
-        console.log({deployment});
-        if(deployment !== null) Designhubz.setDeployment(deployment);
-    }
 
     // Create empty widget
     let widget = await Designhubz.createEyewearWidget(container, demo_progressHandler('Eyewear widget'));
