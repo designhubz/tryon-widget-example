@@ -18,16 +18,15 @@ In it's simplest form....
 
 ## Live preview
 
-Eyewear: https://d2v6wmk4yqo2ys.cloudfront.net/master/example/2.1.1/index.html
+Eyewear: https://d2v6wmk4yqo2ys.cloudfront.net/master/example/2.2.0/index.html
 
-Makeup: https://d2v6wmk4yqo2ys.cloudfront.net/master/example/2.1.1/index.html?demo=makeup
+Makeup: https://d2v6wmk4yqo2ys.cloudfront.net/master/example/2.2.0/index.html?demo=makeup
 
 SpatialXR: Coming soon
 
 ## API Reference
 
-- Designhubz Full: https://d2v6wmk4yqo2ys.cloudfront.net/master/docs/latest/modules.html
-- [Eyewear companion doc](./EYEWEAR.md)
+https://d2v6wmk4yqo2ys.cloudfront.net/master/docs/2.2.0/modules.html
 
 ---
 
@@ -44,8 +43,14 @@ SpatialXR: Coming soon
 
 ## Changelog
 
+### 2.2.0
+- Upgrade VTO configuration
+
 ### 2.1.1
 - Improve SpatialXR widget
+
+### 2.0.3
+- Bug fixes
 
 ### 2.0.2
 - Add SpatialXR (room-based AR) widget

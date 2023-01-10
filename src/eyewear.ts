@@ -20,7 +20,9 @@ export async function demo()
 { 
     // My parameters
     const container = document.getElementById('designhubz-widget-container') as HTMLDivElement;
-    const productIDs = ['MP000000006870126', 'MP000000006870001'];
+    let productsParam = searchParams.get('products');
+    while(productsParam === null) productsParam = window.prompt('Please enter products ids');
+    const productIDs = productsParam.split(',');
 
     // Handle camera permissions before widget creation
     await demo_videoAuth();
@@ -28,10 +30,10 @@ export async function demo()
     // Whitelist local dev access to your resources
     if(location.origin.includes('//localhost:'))
     {
-        const orgId = searchParams.get('orgId') ?? window.prompt('Please enter your organization Id');
+        const orgId = searchParams.get('org') ?? window.prompt('Please enter your organization Id');
         if(orgId !== null) Designhubz.auth(orgId);
         
-        const deployment = searchParams.get('target-deployment');
+        const deployment = searchParams.get('deployment');
         console.log({deployment});
         if(deployment !== null) Designhubz.setDeployment(deployment);
     }
