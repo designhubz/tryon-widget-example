@@ -4,25 +4,32 @@ We’re transforming the online shopping experience with next generation eCommer
 
 ---
 
-# Designhubz | Eyewear & Makeup Tryon
+# Designhubz | XR VTO SDK
 
-This project highlights the usage of the Designhubz web SDK for Eyewear & Makeup Tryons.
+The widget `designhubz-widget` is a very lightweight JS/TS npm package.
 
-- Entry page [index.html](./index.html) has an `HTMLDivElement` that will contain the widget.
-- In [src/eyewear.ts](./src/eyewear.ts) + [src/makeup.ts](./src/makeup.ts) we demonstrate creating a widget, loading products and using available tryon features.
-- *NPM dependency* `"designhubz-widget"` is added in `package.json`.
+It's a simple API that adds a Computer Vision based Realtime 3D Try-On experience, interacting with your digitized inventory on Designhubz' platform and providing 1 of a kind user-feature-based recommendations.
+
+<br>
 
 In it's simplest form....
 
 ![designhubz-widget](./graphic.png)
 
-## Live preview
 
-Eyewear: https://d2v6wmk4yqo2ys.cloudfront.net/master/example/2.2.0/index.html
+## Minimal features examples
 
-Makeup: https://d2v6wmk4yqo2ys.cloudfront.net/master/example/2.2.0/index.html?demo=makeup
+Eyewear ([src/eyewear.ts](./src/eyewear.ts)): https://d2v6wmk4yqo2ys.cloudfront.net/master/example/2.2.0/index.html
 
-SpatialXR: Coming soon
+Makeup ([src/makeup.ts](./src/makeup.ts)): https://d2v6wmk4yqo2ys.cloudfront.net/master/example/2.2.0/index.html?demo=makeup
+
+SpatialXR: SDK example coming soon ([Check embed sample](https://gist.github.com/designhubz/6cd936e79c417811a1538b7754d7c4ed))
+
+
+## Integration companion guide for Eyewear VTO
+
+https://github.com/designhubz/tryon-widget-example/blob/master/EYEWEAR.md
+
 
 ## API Reference
 
@@ -39,6 +46,17 @@ https://d2v6wmk4yqo2ys.cloudfront.net/master/docs/2.2.0/modules.html
   npm start
   ```
 
+
+## Adding the widget to your project
+1. Refer to [./package.json](./package.json) for the latest version of `designhubz-widget` and add it as a dependencies.
+2. `npm install`
+
+
+## Maintenance
+- We use SemVer (Minor and patch version changes are non-breaking)
+- The upgrade is under your control: version bump of `designhubz-widget`, which always has an explicit version
+- New releases will include bug fixes or new features to the widget
+- Improvements to the 3D/Try-On experiences are *transparent changes* (You won't need to upgrade).
 ---
 
 ## Changelog
