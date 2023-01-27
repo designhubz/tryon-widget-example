@@ -17,15 +17,6 @@ In it's simplest form....
 ![designhubz-widget](./graphic.png)
 
 
-## Minimal features examples
-
-Eyewear ([src/eyewear.ts](./src/eyewear.ts)): https://d2v6wmk4yqo2ys.cloudfront.net/master/example/2.2.0/index.html
-
-Makeup ([src/makeup.ts](./src/makeup.ts)): https://d2v6wmk4yqo2ys.cloudfront.net/master/example/2.2.0/index.html?demo=makeup
-
-SpatialXR: SDK example coming soon ([Check embed sample](https://gist.github.com/designhubz/6cd936e79c417811a1538b7754d7c4ed))
-
-
 ## Integration companion guide for Eyewear VTO
 
 https://github.com/designhubz/tryon-widget-example/blob/master/EYEWEAR.md
