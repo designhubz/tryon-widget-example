@@ -52,6 +52,9 @@ https://d2v6wmk4yqo2ys.cloudfront.net/master/docs/2.2.0/modules.html
 
 ## Changelog
 
+### 3.2.1
+- Add `IVariation.status` of type `PlatformStatus:  'TODO' | 'INPROGRESS' | 'INREVIEW' | 'DECLINED' | 'APPROVED'`
+
 ### 2.2.0
 - Upgrade VTO configuration
 
