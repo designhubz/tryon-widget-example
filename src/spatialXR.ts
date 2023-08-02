@@ -3,7 +3,7 @@ import { displayLog } from './logUtils';
 import {
     demo_state,
     demo_progressHandler,
-    demo_takeSnaphot, demo_fetchRecommendations,
+    demo_takeSnaphot,
     demo_cycleProducts
 } from './snippets';
 
@@ -76,7 +76,6 @@ export async function demo()
 
     // Common interactions with widget (./snippets.ts)
     demo_takeSnaphot(widget);
-    demo_fetchRecommendations(widget);
     // demo_cycleProducts(widget, productIDs, 5000);
 
      // Dispose of widget

@@ -94,7 +94,7 @@ export function demo_takeSnaphot(widget: Designhubz.IWidget)
 }
 
 /** Fetch recommendations for the currently loaded product */
-export async function demo_fetchRecommendations(widget: Designhubz.IWidget)
+export async function demo_fetchRecommendations(widget: Designhubz.IEyewearWidget)
 {
     const recommendations = await widget.fetchRecommendations(5);
     console.log('recommendations', recommendations);
@@ -156,10 +156,10 @@ export function demo_onUserInfoUpdate(widget: Designhubz.IEyewearWidget)
 export function demo_userInfo(userInfo: Designhubz.Eyewear.IUserInfo, product: Designhubz.IProduct)
 {
     console.log(`Got userInfo: ipd = ${userInfo.ipd.toFixed(2)} | eyeSize = ${userInfo.eyeSize.toFixed(2)} (${userInfo.size})`);
-    
+
     // Accessing custom product properties as defined in CMS
     const productSize = parseFloat(product.properties['Size Code']!);
-    
+
     const sizeFeedbackMap = {
         [Designhubz.Eyewear.Size.Small]: 'Small frames will fit you just right!',
         [Designhubz.Eyewear.Size.Medium]: 'Medium frames will fit you better!',

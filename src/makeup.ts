@@ -1,10 +1,10 @@
 import * as Designhubz from 'designhubz-widget';
 import { displayLog } from './logUtils';
-import { 
+import {
     demo_state,
     demo_videoAuth, demo_progressHandler,
-    demo_takeSnaphot, demo_fetchRecommendations, 
-    demo_cycleProducts, demo_trackingHandler 
+    demo_takeSnaphot,
+    demo_cycleProducts, demo_trackingHandler
 } from './snippets';
 
 export async function demo()
@@ -43,7 +43,6 @@ export async function demo()
     // Common interactions with widget (./snippets.ts)
     demo_takeSnaphot(widget);
     demo_trackingHandler(widget);
-    demo_fetchRecommendations(widget);
     demo_cycleProducts(widget, productIDs, 5000);
 
     // Take a comparison snapshot
