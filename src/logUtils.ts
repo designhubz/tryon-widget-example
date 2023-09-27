@@ -1,5 +1,10 @@
 
 const logDisplay = document.getElementById('logDisplay') as HTMLDivElement;
+const searchParams = new URL(location.href).searchParams;
+const hideLogs = searchParams.has('devMode') && searchParams.get('devMode')==="false";
+
+if(hideLogs) logDisplay.style.display = "none";
+
 export function displayLog(...args: any[])
 {
     const argArray: any[] = Array.from(arguments);

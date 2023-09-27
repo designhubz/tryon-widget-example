@@ -1,10 +1,11 @@
 <!DOCTYPE HTML>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
 <html class="no-js" lang="en" dir="ltr">
 	<head>
 
         <meta charset="utf-8">
         <link rel="shortcut icon" href="#">
-        <title>Designhubz | Try-On Widget Example</title>
+        <title>Designhubz | AR Widget Example</title>
 
         <style>
 
@@ -22,17 +23,80 @@
             }
 
             #logDisplay {
+              text-align: right;
+              font-family: system-ui;
+              color: white;
+              position: absolute;
+              padding: 20px 20px;
+              height: auto;
+              font-size: medium;
+              pointer-events: none;
+              background: none;
+              width: 20%;
+              right: 8px;
+              overflow: auto;
+              top: 30px;
+            }
+
+            #logDisplay p {
+              background: #607bff;
+              padding: 5px 10px;
+              border-radius: 10px;
+              line-height: 20px;
+              font-size: 14px;
+              display: inline-block;
+              margin: 0px 0px 15px;
+            }
+            #toggleLogs {
+              display: none;
+              position: fixed;
+              top: 0px;
+              height: 20px;
+              background: #607bff;
+              width: 100%;
+              left: 0;
+              text-align: left;
+              padding: 15px 15px;
+              color: #fff;
+              font-family: system-ui;
+              box-shadow: 0px 0px 3px 1px #aa9898;
+            }
+            .arrow {
+              border: solid white;
+              border-width: 0 3px 3px 0;
+              display: inline-block;
+              padding: 6px;
+              right: 50px;
+              position: absolute;
+            }
+
+            .up {
+              transform: rotate(-135deg);
+              -webkit-transform: rotate(-135deg);
+              margin-top: 8px;
+            }
+
+            .down {
+              transform: rotate(45deg);
+              -webkit-transform: rotate(45deg);
+            }
+            @media only screen and (max-width: 600px) {
+              #designhubz-widget-container {
+                margin-left: auto;
+                margin-top: calc((100vh - 75vh) / 2);
                 width: 100%;
-                height: 100%;
-                color: white;
-                font-family: system-ui;
-                text-shadow: 0 0 black;
-                position: absolute;
-                padding: 40px 20px;
-                overflow-y: scroll;
-                height: 65vh;
-                font-size: medium;
-                pointer-events: none;
+                height: 75vh;
+                background-color: black;
+              }
+              #logDisplay {
+                width: 80%;
+                text-align: left;
+                top:50px;
+                display: none;
+              }
+              #toggleLogs {
+                display: block;
+              }
             }
         </style>
 
@@ -41,14 +105,29 @@
     </head>
 
     <body>
-        
+
         <!-- The container of the widget. -->
         <div id="designhubz-widget-container">
             <!-- CSS styled progress bar -->
             <div id="progress"></div>
+            <div id="toggleLogs">View Logs <i class="arrow down"></i></div>
             <div id="logDisplay"></div>
         </div>
-    
-    </body>
 
+    </body>
+    <script>
+      const toggleBtn =  document.getElementById('toggleLogs');
+      const logDisplay =  document.getElementById('logDisplay');
+      toggleBtn.addEventListener('click', (e) => {
+        if(window.getComputedStyle(logDisplay).display === "none") {
+          toggleBtn.innerHTML='Hide Logs <i class="arrow up">';
+          logDisplay.style.display = "block";
+        }
+        else {
+          toggleBtn.innerHTML='View Logs <i class="arrow down">';
+          logDisplay.style.display = "none";
+        }
+      }
+    )
+    </script>
 </html>

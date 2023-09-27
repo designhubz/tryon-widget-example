@@ -1,10 +1,9 @@
 import * as Designhubz from 'designhubz-widget';
 import { displayLog } from './logUtils';
-import {
-    demo_state,
+import { 
     demo_videoAuth, demo_progressHandler,
-    demo_takeSnaphot,
-    demo_cycleProducts, demo_trackingHandler
+    demo_takeSnaphot, 
+    demo_cycleProducts, demo_trackingHandler 
 } from './snippets';
 
 export async function demo()

@@ -4,11 +4,11 @@ We’re transforming the online shopping experience with next generation eCommer
 
 ---
 
-# Designhubz | XR VTO SDK
+# Designhubz | XR Widget SDK
 
 The widget `designhubz-widget` is a very lightweight JS/TS npm package.
 
-It's a simple API that adds a Computer Vision based Realtime 3D Try-On experience, interacting with your digitized inventory on Designhubz' platform and providing 1 of a kind user-feature-based recommendations ([Our demo showroom uses the widget](https://eyewear.designhubz.com/)).
+It's a simple API that enable XR and Computer Vision based Realtime 3D Try-On experiences, interacting with your digitized inventory on Designhubz' platform and providing 1 of a kind user-feature-based recommendations ([Our demo showroom uses the widget](https://eyewear.designhubz.com/)).
 
 <br>
 

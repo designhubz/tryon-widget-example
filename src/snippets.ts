@@ -81,16 +81,20 @@ export function demo_takeSnaphot(widget: Designhubz.IWidget)
     window.addEventListener('keydown', async ke => {
         if(ke.code === 'Enter')
         {
-            // requet and await snapshot result
-            const snapshot = await widget.takeSnapshotAsync();
-
-            // use the snapshot with helper functions
-            // const image = snapshot.createImageElement();
-            // const dataURL = snapshot.getDataURL('jpeg', 80);
-            const blob = await snapshot.getBlobAsync('jpeg', 80);
-            open(URL.createObjectURL(blob), '_blank');
+            await takeSnapshot(widget);
         }
     });
+}
+
+/** Take Snapshot Function Example Function */
+export async function takeSnapshot(widget: Designhubz.IWidget) {
+    const snapshot = await widget.takeSnapshotAsync();
+
+    // use the snapshot with helper functions
+    // const image = snapshot.createImageElement();
+    // const dataURL = snapshot.getDataURL('jpeg', 80);
+    const blob = await snapshot.getBlobAsync('jpeg', 80);
+    open(URL.createObjectURL(blob), '_blank');
 }
 
 /** Fetch recommendations for the currently loaded product */
@@ -197,7 +201,7 @@ export function demo_switchContext(widget: Designhubz.IMultiWidget)
 
 /** Cycles through products */
 export async function demo_cycleProducts(
-    widget: Designhubz.ITryonwidget,
+    widget: Designhubz.IWidget,
     products: string[],
     cycleNextDelayMS: number
 )

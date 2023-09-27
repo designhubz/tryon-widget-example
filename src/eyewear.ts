@@ -1,10 +1,10 @@
 import * as Designhubz from 'designhubz-widget';
 import { displayLog } from './logUtils';
-import {
+import { 
     demo_state,
     demo_videoAuth, demo_progressHandler, demo_onUserInfoUpdate,
-    demo_takeSnaphot, demo_trackingHandler, demo_fetchRecommendations,
-    demo_cycleProducts, demo_switchContext, demo_stats
+    demo_takeSnaphot, demo_trackingHandler, demo_fetchRecommendations, 
+    demo_cycleProducts, demo_switchContext, demo_stats 
 } from './snippets';
 
 console.log(...displayLog('Designhubz Eyewear VTO - SDK features', Designhubz.version));
@@ -14,7 +14,7 @@ const isLocalDev = location.origin.includes('//localhost:');
 
 /**
  * This project highlights the usage of the Designhubz web SDK for Eyewear
- *
+ * 
  * Check the [companion doc](../EYEWEAR.md)
  */
 export async function demo()
@@ -28,7 +28,7 @@ export async function demo()
         console.log({deployment});
         if(deployment !== null) Designhubz.setDeployment(deployment);
     }
-
+    
     // My parameters
     const container = document.getElementById('designhubz-widget-container') as HTMLDivElement;
     let productsParam = searchParams.get('products');
@@ -55,7 +55,7 @@ export async function demo()
     // Widget defaults to 3D mode, this will switch to tryon
     const newContext = await widget.switchContext('tryon', demo_progressHandler('Switching to tryon'));
     console.log(`Context switched to '${newContext}'`);
-
+    
     // Common interactions with widget (./snippets.ts)
     demo_onUserInfoUpdate(widget);
     demo_takeSnaphot(widget);

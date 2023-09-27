@@ -15,20 +15,25 @@ export async function demo()
 {
     // My parameters
     const container = document.getElementById('designhubz-widget-container') as HTMLDivElement;
-    const productIDs = (searchParams.get('productIDs')
-        ?? window.prompt('Please enter a product id')!).split(',');
+    const productIDsParams = (
+      searchParams.get('productIDs') ?? window.prompt('Please enter a product id')
+    );
+    if(productIDsParams === null)
+    {
+      const issue = 'Missing product param';
+      alert(issue);
+      throw issue;
+    }
+    const productIDs = productIDsParams.split(',');
     console.log(productIDs);
 
     // Whitelist local dev access to your resources
-    if(location.origin.includes('//localhost:'))
-    {
-        const orgId = searchParams.get('orgId') ?? window.prompt('Please enter your organization Id');
-        if(orgId !== null) Designhubz.auth(orgId);
+    const orgId = searchParams.get('orgId') ?? window.prompt('Please enter your organization Id');
+    if(orgId !== null) Designhubz.auth(orgId);
 
-        const deployment = searchParams.get('target-deployment');
-        console.log({deployment});
-        if(deployment !== null) Designhubz.setDeployment(deployment);
-    }
+    const deployment = searchParams.get('target-deployment');
+    console.log({deployment});
+    if(deployment !== null) Designhubz.setDeployment(deployment);
 
     // Create empty widget
     let widget = await Designhubz.createSpatialXRWidget(container, demo_progressHandler('SpatialXR widget'));
@@ -51,26 +56,21 @@ export async function demo()
     arCTAButton.addEventListener('click', ev =>
     {
         console.log('trigger AR');
-        try
-        {
+        if(widget.isArEnabled()) {
+          try {
             widget.triggerAr();
-        }
-        catch(err)
-        {
+          } catch (err) {
             console.log('trigger AR error\n', err);
-            if(err instanceof Designhubz.WidgetError)
-            {
-                widget.generateQRCode()
-                .then( qrCodeElement =>
-                {
-                    qrCodeElement.style.cssText = `position: absolute; width: 40vh; left: 30vw; top: 20vh; border: 8px solid black;`;
-                    container.appendChild(qrCodeElement);
-                });
-            }
-            else
-            {
-                throw err;
-            }
+            throw err;
+          }
+        }
+        else {
+            widget.generateQRCode()
+              .then( qrCodeElement =>
+              {
+                qrCodeElement.style.cssText = `position: absolute; width: 40vh; left: 30vw; top: 20vh; border: 8px solid black;`;
+                container.appendChild(qrCodeElement);
+              });
         }
     });
 
@@ -88,5 +88,9 @@ export async function demo()
              await widget.disposeAsync();
              demo();
          }
+        else if(ke.key === '1')
+        {
+        	widget.toggleRequirementsDisplay();
+        }
      });
 }
