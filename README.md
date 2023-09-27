@@ -21,15 +21,17 @@ In it's simplest form....
 
 https://github.com/designhubz/tryon-widget-example/blob/master/EYEWEAR.md
 
+### Other widgets
+The [CCL VTO](./src/ccl.ts), [makeup VTO](./src/makeup.ts), as well as [Spatial XR](./src/spatialXR.ts) widgets follow a similar recipe.
+
 
 ## API Reference
 
-https://d2v6wmk4yqo2ys.cloudfront.net/master/docs/2.2.0/modules.html
+https://d2v6wmk4yqo2ys.cloudfront.net/master/docs/3.3.0/modules.html
 
 ---
 
 ## Running the example
-
 1. Clone project and open terminal in root project folder
 2. Install and run:
   ```bash
@@ -37,20 +39,28 @@ https://d2v6wmk4yqo2ys.cloudfront.net/master/docs/2.2.0/modules.html
   npm start
   ```
 
+### Adding the widget to your project
+Refer to [./package.json](./package.json) for the latest version of `designhubz-widget` and add it as a dependency.
 
-## Adding the widget to your project
-1. Refer to [./package.json](./package.json) for the latest version of `designhubz-widget` and add it as a dependencies.
-2. `npm install`
-
-
-## Maintenance
-- We use SemVer (Minor and patch version changes are non-breaking)
-- The upgrade is under your control: version bump of `designhubz-widget`, which always has an explicit version
-- New releases will include bug fixes or new features to the widget
-- Improvements to the 3D/Try-On experiences are *transparent changes* (You won't need to upgrade).
 ---
 
 ## Changelog
+
+### 3.3.0
+- CCL VTO beta release
+
+### 3.2.5
+- Add auto visibility track handler
+- Remove deprecated `OrgId` from `CreateSession`
+
+### 3.2.4
+- Track time in AR for Spatial XR
+
+### 3.2.3
+- Introduces digitization requirements viz to spatialxr widget with `toggleRequirementsDisplay`
+
+### 3.2.2
+- Add `OrgId` to `CreateSession`
 
 ### 3.2.1
 - Add `IVariation.status` of type `PlatformStatus:  'TODO' | 'INPROGRESS' | 'INREVIEW' | 'DECLINED' | 'APPROVED'`
