@@ -1,5 +1,5 @@
 import * as Designhubz from 'designhubz-widget';
-import {displayLog} from './logUtils';
+import {addItem, displayLog} from './logUtils';
 import
 {
     demo_state,
@@ -56,15 +56,36 @@ export async function demo()
     // Load a product in the widget
     const product = await widget.loadProduct(productIDs[0]);
     console.log('product', product);
-    displayLog(`product '${ product.productKey }' loaded`);
     const statusDescription = product.status === undefined ? 'has no status' : `is '${ product.status }'`;
     displayLog(`product '${ product.productKey }' ${statusDescription}`);
+
+    let ambientScore = Designhubz.CCLTrackingScore.High;
+    const scoreEntries: Record<string, HTMLElement> = {};
+    widget.onTrackingScoreChange.Add( score =>
+    {
+        if(score !== ambientScore)
+        {
+            const description = score === Designhubz.CCLTrackingScore.High
+                ? 'Conditions improved'
+                : 'Poor tracking 😑🔆';
+            
+            for(const key in scoreEntries) scoreEntries[key].style.transform = 'unset';
+            if(scoreEntries[description] === undefined) scoreEntries[description] = addItem(description);
+            scoreEntries[description].style.transform = 'scale(1.2)';
+            ambientScore = score;
+        }
+    });
 
     // Common interactions with widget (./snippets.ts)
     demo_takeSnaphot(widget);
 
     // Dispose of widget
-    console.log(`   Press 'd' to dispose of the widget and resources`);
+    console.log(...displayLog(`   Press 'c' to configure the CCL Texture`));
+    console.log(...displayLog(`   Press 't' to run VTO on test models`));
+    console.log(...displayLog(`   Press 'w' to toggle low tracking quality blur`));
+    console.log(...displayLog(`   Press 'd' to dispose of the widget and resources`));
+    let configuring = false;
+    let trackingHandler: 'auto' | 'off' = 'auto';
     window.addEventListener('keydown', async ke =>
     {
         if(ke.key === 'd')
@@ -72,12 +93,22 @@ export async function demo()
             // First stop interacting with widget (this will stop demo_cycleProducts)
             demo_state.active = false;
             await widget.disposeAsync();
-            demo();
+            // demo();
         }
         else if(ke.key === 'c')
         {
             demo_state.active = false;
-            await widget.configure();
+            await widget.configure( configuring = ! configuring );
+        }
+        else if(ke.key === 't')
+        {
+            demo_state.active = false;
+            widget.enableVTOTests();
+            displayLog('Setting up ccl "test models"');
+        }
+        else if(ke.key === 'w')
+        {
+            widget.setUITrackingWarnings( trackingHandler = trackingHandler === 'auto' ? 'off' : 'auto' );
         }
     });
 

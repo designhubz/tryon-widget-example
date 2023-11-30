@@ -27,7 +27,7 @@ The [CCL VTO](./src/ccl.ts), [makeup VTO](./src/makeup.ts), as well as [Spatial 
 
 ## API Reference
 
-https://d2v6wmk4yqo2ys.cloudfront.net/master/docs/3.3.2/modules.html
+https://d2v6wmk4yqo2ys.cloudfront.net/master/docs/3.4.0/modules.html
 
 ---
 
@@ -45,9 +45,18 @@ Refer to [./package.json](./package.json) for the latest version of `designhubz-
 ---
 
 ## Changelog
+### 3.4.0
+- CCL VTO 1.0 release
+- Adds blending from real ccl textures
+- Improved iris tracking quality
+- Separate `enableVTOTests` from `configure`
+- Adds `onTrackingScoreChange` event and setter `setUITrackingWarnings`
+
+### 3.3.3
+- Configuration toggle
 
 ### 3.3.2
-- Deprecate _dev Logs
+- Deprecate/remove _dev
 
 ### 3.3.0
 - CCL VTO beta release
