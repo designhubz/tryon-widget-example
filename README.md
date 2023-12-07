@@ -45,6 +45,10 @@ Refer to [./package.json](./package.json) for the latest version of `designhubz-
 ---
 
 ## Changelog
+
+### 3.4.1
+- Bubble up camera errors
+
 ### 3.4.0
 - CCL VTO 1.0 release
 - Adds blending from real ccl textures

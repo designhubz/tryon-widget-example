@@ -30,18 +30,24 @@ export async function demo()
 
     // My parameters
     const container = document.getElementById('designhubz-widget-container') as HTMLDivElement;
-    let tries = 0;
     let productsParam = searchParams.get('products');
-    while(productsParam === null && tries++ < 1) productsParam = window.prompt('Please enter products ids \'products=\'');
+    if(productsParam === null) productsParam = window.prompt('Please enter products ids \'products=\'');
     if(productsParam === null) return window.prompt(`Demo aborted without params`);
 
     const productIDs = productsParam.split(',');
 
     // Handle camera permissions before widget creation
-    await demo_videoAuth();
+    // await demo_videoAuth();
 
     // Create empty widget
-    let widget = await Designhubz.createCCLWidget(container, demo_progressHandler('CCL widget'));
+    let widget = await Designhubz.createCCLWidget(container, demo_progressHandler('CCL widget'))
+        .catch( (reason: any) =>
+        {
+            if(reason === 'NotAllowedError') alert('Camera access denied');
+            else alert(`Experience aborted!\n${String(reason)}`);
+            return Promise.reject(reason);
+        });
+
     console.log('widget', widget);
     displayLog('widget loaded');
 
@@ -68,7 +74,7 @@ export async function demo()
             const description = score === Designhubz.CCLTrackingScore.High
                 ? 'Conditions improved'
                 : 'Poor tracking 😑🔆';
-            
+
             for(const key in scoreEntries) scoreEntries[key].style.transform = 'unset';
             if(scoreEntries[description] === undefined) scoreEntries[description] = addItem(description);
             scoreEntries[description].style.transform = 'scale(1.2)';
@@ -130,6 +136,6 @@ export async function demo()
     container.appendChild(takeSnapshotBtn);
     takeSnapshotBtn.addEventListener('click', async ev =>
     {
-      await takeSnapshot(widget);
+        await takeSnapshot(widget);
     });
 }
