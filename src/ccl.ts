@@ -36,17 +36,26 @@ export async function demo()
 
     const productIDs = productsParam.split(',');
 
-    // Handle camera permissions before widget creation
-    // await demo_videoAuth();
-
     // Create empty widget
     let widget = await Designhubz.createCCLWidget(container, demo_progressHandler('CCL widget'))
-        .catch( (reason: any) =>
+    .catch( (reason: any) =>
+    {
+        // reason could be a stringified camera error from:
+        // https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/getUserMedia#exceptions
+        switch(reason)
         {
-            if(reason === 'NotAllowedError') alert('Camera access denied');
-            else alert(`Experience aborted!\n${String(reason)}`);
-            return Promise.reject(reason);
-        });
+            case 'NotAllowedError': 
+                alert('[Custom camera handler]\nCamera access denied');
+                break;
+            case 'NotReadableError':
+                alert('[Custom camera handler]\nThe VTO experience requires a camera');
+                break;
+            default:
+                alert(`Experience aborted!\n${String(reason)}`);
+                break;   
+        }
+        return Promise.reject(reason);
+    });
 
     console.log('widget', widget);
     displayLog('widget loaded');
@@ -74,7 +83,7 @@ export async function demo()
             const description = score === Designhubz.CCLTrackingScore.High
                 ? 'Conditions improved'
                 : 'Poor tracking 😑🔆';
-
+            
             for(const key in scoreEntries) scoreEntries[key].style.transform = 'unset';
             if(scoreEntries[description] === undefined) scoreEntries[description] = addItem(description);
             scoreEntries[description].style.transform = 'scale(1.2)';
@@ -136,6 +145,6 @@ export async function demo()
     container.appendChild(takeSnapshotBtn);
     takeSnapshotBtn.addEventListener('click', async ev =>
     {
-        await takeSnapshot(widget);
+      await takeSnapshot(widget);
     });
 }

@@ -35,9 +35,6 @@ export async function demo()
     while(productsParam === null) productsParam = window.prompt('Please enter products ids \'products=\'');
     const productIDs = productsParam.split(',');
 
-    // Handle camera permissions before widget creation
-    await demo_videoAuth();
-
     // Create empty widget
     let widget = await Designhubz.createEyewearWidget(container, demo_progressHandler('Eyewear widget'));
     console.log('widget', widget);
@@ -53,8 +50,29 @@ export async function demo()
     displayLog(`product '${product.productKey}' is '${product.status}'`);
 
     // Widget defaults to 3D mode, this will switch to tryon
-    const newContext = await widget.switchContext('tryon', demo_progressHandler('Switching to tryon'));
-    console.log(`Context switched to '${newContext}'`);
+    try
+    {
+        const newContext = await widget.switchContext('tryon', demo_progressHandler('Switching to tryon'));
+        console.log(`Context switched to '${newContext}'`);
+    }
+    catch(err: any)
+    {
+        // err could be a stringified camera error from:
+        // https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/getUserMedia#exceptions
+        switch(err)
+        {
+            case 'NotAllowedError': 
+                alert('[Custom camera handler]\nCamera access denied');
+                break;
+            case 'NotReadableError':
+                alert('[Custom camera handler]\nThe VTO experience requires a camera');
+                break;
+            default:
+                alert(`Experience aborted!\n${String(err)}`);
+                break;   
+        }
+        throw err;
+    }
     
     // Common interactions with widget (./snippets.ts)
     demo_onUserInfoUpdate(widget);

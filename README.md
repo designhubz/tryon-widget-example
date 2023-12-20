@@ -27,7 +27,7 @@ The [CCL VTO](./src/ccl.ts), [makeup VTO](./src/makeup.ts), as well as [Spatial 
 
 ## API Reference
 
-https://d2v6wmk4yqo2ys.cloudfront.net/master/docs/3.4.2/modules.html
+https://d2v6wmk4yqo2ys.cloudfront.net/master/docs/3.5.0/modules.html
 
 ---
 
@@ -45,6 +45,11 @@ Refer to [./package.json](./package.json) for the latest version of `designhubz-
 ---
 
 ## Changelog
+
+### 3.5.0
+- Fix Container/iframe handshake ("infinite console errors" bug fix)
+- Bubble `IMultiWidget.switchContext` errors
+- Camera error handling examples, check "[Custom camera handler]" in [./src/eyewear.ts](./src/eyewear.ts) and [./src/ccl.ts](./src/ccl.ts)
 
 ### 3.4.2
 - Fix `onTrackingScoreChange` event
