@@ -68,10 +68,10 @@ export async function demo()
                 alert('[Custom camera handler]\nThe VTO experience requires a camera');
                 break;
             default:
-                alert(`Experience aborted!\n${String(err)}`);
+                alert(`VTO experience aborted!\n${String(err)}`);
                 break;   
         }
-        throw err;
+        console.log(`Staying in 3D`);
     }
     
     // Common interactions with widget (./snippets.ts)
@@ -79,7 +79,7 @@ export async function demo()
     demo_takeSnaphot(widget);
     demo_trackingHandler(widget);
     demo_fetchRecommendations(widget);
-    demo_cycleProducts(widget, productIDs, 5000);
+    if(productIDs.length > 1) demo_cycleProducts(widget, productIDs, 5000);
     demo_switchContext(widget);
 
      // Dispose of widget
