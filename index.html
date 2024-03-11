@@ -10,10 +10,12 @@
         <style>
 
             #designhubz-widget-container {
+                position: relative;
                 margin-left: calc((100vw - 100vh) / 2);
                 margin-top: calc((100vh - 75vh) / 2);
                 width: 100vh; height: 75vh;
                 background-color: black;
+                overflow: hidden;
             }
 
             #progress {
@@ -34,12 +36,20 @@
               background: none;
               width: 20%;
               left: 8px;
-              overflow: auto;
               top: 30px;
             }
 
             #logDisplay p {
               background: #607bff;
+              padding: 5px 10px;
+              border-radius: 10px;
+              line-height: 20px;
+              font-size: 14px;
+              display: inline-block;
+              margin: 0px 0px 15px;
+            }
+            #logDisplay .error {
+              background: #e47b6b;
               padding: 5px 10px;
               border-radius: 10px;
               line-height: 20px;

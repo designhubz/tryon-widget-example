@@ -5,6 +5,18 @@ const hideLogs = searchParams.has('devMode') && searchParams.get('devMode')==="f
 
 if(hideLogs) logDisplay.style.display = "none";
 
+export function displayError(label: string, err: any)
+{
+    let errStr: string;
+    if(err instanceof DOMException) errStr = `${err.name}: ${err.message}`;
+    else errStr = String(err);
+    const div = document.createElement('div');
+    div.classList.add('error')
+    div.innerHTML = `${label}<br><pre style="white-space: pre-wrap;"><code>${errStr}</code></pre>`;
+    logDisplay.appendChild(div);
+    return err;
+}
+
 export function displayLog(...args: any[])
 {
     const argArray: any[] = Array.from(arguments);

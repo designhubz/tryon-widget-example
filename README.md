@@ -22,7 +22,7 @@ In it's simplest form....
 https://github.com/designhubz/tryon-widget-example/blob/master/EYEWEAR.md
 
 ### Other widgets
-The [CCL VTO](./src/ccl.ts), [makeup VTO](./src/makeup.ts), as well as [Spatial XR](./src/spatialXR.ts) widgets follow a similar recipe.
+The [CCL VTO](./src/ccl.ts), [Spatial XR](./src/spatialXR.ts), and [makeup VTO](./src/makeup.ts) widgets follow a similar recipe.
 
 
 ## API Reference
@@ -38,6 +38,9 @@ https://d2v6wmk4yqo2ys.cloudfront.net/master/docs/3.5.0/modules.html
   npm i
   npm start
   ```
+3. Have your organisation id and digitized product ids available to configure:
+  - (as query param, or directly in the code)
+4. Navigate to the local webapp: https://localhost:4200/?demo=eyewear (other widgets: demo=ccl|spatialxr|makeup)
 
 ### Adding the widget to your project
 Refer to [./package.json](./package.json) for the latest version of `designhubz-widget` and add it as a dependency.
@@ -45,6 +48,30 @@ Refer to [./package.json](./package.json) for the latest version of `designhubz-
 ---
 
 ## Changelog
+
+### 4.0.0
+*(Major eyewear VTO upgrade)*
+- Quicker widget loading
+- Optimized Tryon setup responsiveness
+- Introducing "progressive textures loading"
+- Reduced REST API calls
+- Improved 3D pipeline optimizations and loading behaviour
+- Introduces a more accurate `loadVariation` replacing `loadProduct`
+
+### 3.5.5
+- Improve Eyewear widget default mode handling
+
+### 3.5.4
+- Introducing SpatialXR dimensions display
+
+### 3.5.3
+- Introducing profiler / collect time measurements
+
+### 3.5.2
+- Adding post/update session when widget is visible mechanism
+
+### 3.5.1
+- Fix referer parameter naming (referrer -> referer)
 
 ### 3.5.0
 - Fix Container/iframe handshake ("infinite console errors" bug fix)

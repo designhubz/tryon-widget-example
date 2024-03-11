@@ -51,15 +51,13 @@ export async function demo_videoAuth()
 export function demo_progressHandler(label: string)
 {
     const progressElement = document.getElementById('progress');
-    let loggedProgress = '';
+    let loggedHash = '';
     const handler: Designhubz.TProgressCallback = (progress: number) => {
-        if(loggedProgress !== progress.toFixed(1))
-        {
-            loggedProgress = progress.toFixed(1);
-            const percent = Math.round(progress * 100);
-            if(progressElement !== null) progressElement.style.width = `${percent}%`;
-            console.log(`${label}: ${percent}%`);
-        }
+        const percent = Math.round(progress * 100);
+        if(percent.toString() === loggedHash) return;
+        loggedHash = percent.toString();
+        if(progressElement !== null) progressElement.style.width = `${percent}%`;
+        console.log(`${label}: ${percent}%`);
     };
     return handler;
 }
