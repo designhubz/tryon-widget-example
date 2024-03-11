@@ -27,7 +27,7 @@ The [CCL VTO](./src/ccl.ts), [Spatial XR](./src/spatialXR.ts), and [makeup VTO](
 
 ## API Reference
 
-https://d2v6wmk4yqo2ys.cloudfront.net/master/docs/3.5.0/modules.html
+https://d2v6wmk4yqo2ys.cloudfront.net/master/docs/4.0.0/modules.html
 
 ---
 
