@@ -6,6 +6,7 @@ import {
     demo_takeSnaphot,
     demo_cycleProducts
 } from './snippets';
+import {demoScreenAnchors} from './features/demoScreenAnchors';
 
 console.log(...displayLog('Designhubz Spatial XR - SDK features', Designhubz.version));
 
@@ -72,6 +73,14 @@ export async function demo()
                 container.appendChild(qrCodeElement);
               });
         }
+    });
+
+    // handle screen anchors (Dimensions)
+    demoScreenAnchors({
+      widget, 
+      container,
+      offset: 0.5,
+      // dimensions: {width: 100, height: 200, depth: 100}
     });
 
     // Common interactions with widget (./snippets.ts)
